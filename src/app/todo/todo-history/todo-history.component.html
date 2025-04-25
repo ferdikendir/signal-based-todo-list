@@ -1,0 +1,25 @@
+<div class="flex flex-col gap-y-2 mt-8">
+
+    <div class="flex flex-row gap-x-2 justify-between items-center text-2xl font-bold bg-gray-300 p-2 rounded-xl"
+        (click)="collapsed.set(!collapsed())">
+        <span>Todo History</span>
+
+        @if (collapsed()) {
+        <span class="iconify mdi-light--chevron-down size-6 right-0 ml-auto"></span>
+        } @else {
+        <span class="iconify mdi-light--chevron-right size-6 right-0 ml-auto"></span>
+        }
+
+    </div>
+
+    @if (collapsed()) {
+
+    @for (history of todoHistory(); track history) {
+
+    <app-todo-history-item [history]="history" />
+
+    }
+
+    }
+
+</div>

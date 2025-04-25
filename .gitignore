@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# Angular/React/Vite build çıktıları
+dist/
+build/
+.angular/
+public/
+
+# IDE dosyaları
+.vscode/
+.idea/
+
+# OS dosyaları
+.DS_Store
+Thumbs.db

@@ -1,0 +1,37 @@
+<div class="flex flex-col gap-y-2 w-full h-full mt-8 bg-[#AE6D47] p-4 rounded-2xl">
+
+    <app-todo-info class="p-2 rounded-xl bg-[#F8F2DC]" />
+
+    @for (todo of todos(); track todo) {
+
+    <div class="flex flex-row items-center gap-x-2 bg-[#F5F5F5] rounded-2xl p-2">
+
+        <p class="text-xl truncate">{{todo.title}}</p>
+
+        <div class="flex right-0 ml-auto gap-x-1">
+
+            <button class="text-white p-2 rounded-md right-0 ml-auto flex items-center justify-center" [ngClass]="{
+                    'bg-green-500': !todo.completed,
+                    'bg-yellow-500': todo.completed
+                }" (click)="completeTodo(todo)">
+
+                @if (!todo.completed) {
+                <span class="iconify mdi--tick size-6"></span>
+                } @else {
+                <span class="iconify material-symbols--cancel size-6"></span>
+                }
+
+            </button>
+
+            <button class="bg-red-500 text-white p-2 rounded-md right-0 ml-auto flex items-center justify-center"
+                (click)="deleteTodo(todo)">
+                <span class="iconify material-symbols--delete-outline size-6"></span>
+            </button>
+
+        </div>
+
+    </div>
+
+    }
+
+</div>
