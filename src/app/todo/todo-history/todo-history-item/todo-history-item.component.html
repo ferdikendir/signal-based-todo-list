@@ -3,7 +3,7 @@
     'rounded-tl-xl rounded-tr-xl': collapsed()
 }">
 
-    <p>{{ history().type }}</p>
+    <span>{{ history().type }}</span>
 
     @if (collapsed()) {
     <span class="iconify mdi-light--chevron-down size-6 right-0 ml-auto"></span>
@@ -14,8 +14,8 @@
 </div>
 
 @if (collapsed()) {
-<div class="flex flex-row gap-x-2 justify-between items-center bg-gray-500 p-2 text-white opacity-50" [ngClass]="{
-    'rounded-bl-xl rounded-br-xl': collapsed()
+<div class="flex flex-row gap-x-2 justify-between items-center bg-card p-2 text-white opacity-50" [ngClass]="{
+    'rounded-bl-xl rounded-br-xl shadow-3xl': collapsed()
 }">
 
     @switch (history().type) {

@@ -6,7 +6,11 @@ import { StateChangeType } from "@core/store/base/state-change.enum";
 @Component({
     selector: 'app-todo-history-item',
     templateUrl: './todo-history-item.component.html',
-    styles: ``,
+    styles: `
+    p {
+        @apply text-black;
+    }
+    `,
     imports: [NgClass]
 })
 export class TodoHistoryItemComponent {
