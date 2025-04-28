@@ -61,6 +61,10 @@ export class Store<T extends object> implements IStore<T> {
         });
     }
 
+    snapshot(): T {
+        return this._state();
+    }
+
     // State'i temizler
     clear(): void {
         this._state.set(this._initialState);
