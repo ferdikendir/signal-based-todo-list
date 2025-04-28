@@ -53,7 +53,7 @@ export const completeTodo = (id: number) => {
     const historyItem: TodoHistory = {
         type: StateChangeType.UPDATE,
         updatedItem: { ...updatedTodo as Todo, completed: !updatedTodo?.completed },
-        description: 'Completed a todo'
+        description: `${!updatedTodo?.completed ? 'Completed' : 'Uncompleted'} a todo`
     };
 
     history().unshift(historyItem);
