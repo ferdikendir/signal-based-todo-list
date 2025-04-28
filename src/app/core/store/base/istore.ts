@@ -21,9 +21,6 @@ export interface IStore<T> {
     get(): T;
 
     // Subscribe to state changes
-    dispacth(observer: (state: T) => void): void;
-
-    // Subscribe to state changes
     onChange(callback: (state: T) => void): void;
 
     // Clear state

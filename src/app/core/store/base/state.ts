@@ -55,17 +55,9 @@ export class Store<T extends object> implements IStore<T> {
     }
 
     // State değişikliklerini izler
-    dispacth(observer: (state: T) => void): void {
-        effect(() => {
-            observer(this._state());
-        });
-    }
-
-    // State değişikliklerini izler
     onChange(callback: (state: T) => void): void {
         effect(() => {
-            const value = this._state();
-            callback(value);
+            callback(this._state());
         });
     }
 
