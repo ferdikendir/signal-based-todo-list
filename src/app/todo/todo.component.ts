@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { TodoListComponent } from "./todo-list/todo-list.component";
 import { TodoFormComponent } from "./todo-form/todo-form.component";
 import { TodoHistoryComponent } from "./todo-history/todo-history.component";
+import { SharedModule } from "@shared/shared.module";
 
 @Component({
     selector: 'app-todo',
@@ -12,7 +13,8 @@ import { TodoHistoryComponent } from "./todo-history/todo-history.component";
         FormsModule,
         TodoListComponent,
         TodoFormComponent,
-        TodoHistoryComponent
+        TodoHistoryComponent,
+        SharedModule
     ]
 })
 export class TodoComponent {

@@ -46,6 +46,8 @@ export const todos = todoStore.select(state => state.todos);
 
 export const history = todoStore.select(state => state.history);
 
+//#region Todo Actions
+
 export const completeTodo = (id: number) => {
 
     const updatedTodo = todos().find(todo => todo.id === id);
@@ -104,3 +106,5 @@ export const deleteTodo = (id: number) => {
         history: [...state.history]
     }));
 };
+
+//#endregion

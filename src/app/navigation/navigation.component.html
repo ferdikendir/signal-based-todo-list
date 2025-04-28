@@ -1,0 +1,8 @@
+<div fxLayout="row" fxLayoutGap="1rem">
+
+    @for (item of navigationItems; track item.path) {
+    <a class="text-2xl font-bold hover:cursor-pointer hover:text-primary" [routerLink]="[item.path]"
+        [routerLinkActiveOptions]="item.routerLinkActiveOptions" routerLinkActive="text-primary">{{ item.label }}</a>
+    }
+
+</div>

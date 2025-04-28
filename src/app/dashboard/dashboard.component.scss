@@ -1,0 +1,7 @@
+.info-card {
+    @apply gap-2 h-[20%] bg-primary rounded-lg p-4 text-hint-light text-2xl font-bold;
+}
+
+.info-card-content {
+    @apply gap-2 w-full h-full;
+}
