@@ -1,27 +1,35 @@
-<div class="gap-4 p-gutter w-full h-full" fxLayout="row" fxLayout.lt-md="column">
+<div class="p-gutter" fxFlex fxLayout="column">
 
-    <div class="info-card hover:!bg-gray-500" fxFlex fxLayout="column" fxLayout.lt-md="row"
-        fxLayoutAlign="center center">
-        <div class="info-card-content" fxLayout="column" fxLayoutAlign="center center">
-            <p>All Todos</p>
-            <p>({{ allTodos.length }})</p>
+    <div class="gap-4" fxFlex="15%" fxFlex.lt-md="45%" fxLayout="row" fxLayout.lt-md="column">
+
+        <div class="info-card hover:!bg-gray-500" fxFlex fxLayout="column" fxLayout.lt-md="row"
+            fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <p>All Todos</p>
+                <p>({{ allTodos().length }})</p>
+            </div>
         </div>
+
+        <div class="info-card hover:!bg-green-500" fxFlex fxLayout="column" fxLayout.lt-md="row"
+            fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <p>Completed Todos</p>
+                <p>({{ completedTodos().length }})</p>
+            </div>
+        </div>
+
+        <div class="info-card hover:!bg-orange-500" fxFlex fxLayout="column" fxLayout.lt-md="row"
+            fxLayoutAlign="center center">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <p>Pending Todos</p>
+                <p>({{ pendingTodos().length }})</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="info-card hover:!bg-green-500" fxFlex fxLayout="column" fxLayout.lt-md="row"
-        fxLayoutAlign="center center">
-        <div class="info-card-content" fxLayout="column" fxLayoutAlign="center center">
-            <p>Completed Todos</p>
-            <p>({{ completedTodos.length }})</p>
-        </div>
-    </div>
-
-    <div class="info-card hover:!bg-orange-500" fxFlex fxLayout="column" fxLayout.lt-md="row"
-        fxLayoutAlign="center center">
-        <div class="info-card-content" fxLayout="column" fxLayoutAlign="center center">
-            <p>Pending Todos</p>
-            <p>({{ pendingTodos.length }})</p>
-        </div>
+    <div class="xl:w-1/2 lg:w-2/3 w-full">
+        <app-todo-form />
     </div>
 
 </div>
