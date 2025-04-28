@@ -1,5 +1,6 @@
 import { Component, inject } from "@angular/core";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { undoLastChange } from "@core/store";
 import { SharedModule } from "@shared/shared.module";
 
 @Component({
@@ -32,5 +33,9 @@ export class NavigationComponent {
                 routerLinkActiveOptions: { exact: item.routerLinkActiveOptions?.exact ?? false }
             }
         });
+    }
+
+    undoLastChange() {
+        undoLastChange();
     }
 }
