@@ -1,37 +1,43 @@
-<div class="flex flex-col gap-y-2 w-full h-full mt-8 bg-[#AE6D47] p-4 rounded-2xl">
+<div class="flex flex-col gap-y-2 w-full bg-card p-4 rounded-2xl">
 
-    <app-todo-info class="p-2 rounded-xl bg-[#F8F2DC]" />
+    <app-todo-info class="p-2 rounded-xl bg-secondary" />
 
-    @for (todo of todos(); track todo) {
+    <div class="h-[calc(100vh-500px)] overflow-y-auto">
 
-    <div class="flex flex-row items-center gap-x-2 bg-[#F5F5F5] rounded-2xl p-2">
+        @for (todo of todos(); track todo; let last = $last) {
 
-        <p class="text-xl truncate">{{todo.title}}</p>
+        <div class="flex flex-row items-center gap-y-2 bg-header rounded-2xl p-2" [ngClass]="{
+            'mb-1': !last
+        }">
 
-        <div class="flex right-0 ml-auto gap-x-1">
+            <p class="text-xl truncate">{{todo.title}}</p>
 
-            <button class="text-white p-2 rounded-md right-0 ml-auto flex items-center justify-center" [ngClass]="{
-                    'bg-green-500': !todo.completed,
-                    'bg-yellow-500': todo.completed
-                }" (click)="completeTodo(todo)">
+            <div class="flex right-0 ml-auto gap-x-1">
 
-                @if (!todo.completed) {
-                <span class="iconify mdi--tick size-6"></span>
-                } @else {
-                <span class="iconify material-symbols--cancel size-6"></span>
-                }
+                <button class="text-white rounded-md right-0 ml-auto flex items-center justify-center size-8" [ngClass]="{
+                            'bg-pending': todo.completed,
+                            'bg-completed': !todo.completed
+                        }" (click)="completeTodo(todo)">
 
-            </button>
+                    @if (!todo.completed) {
+                    <span class="iconify mdi--tick"></span>
+                    } @else {
+                    <span class="iconify material-symbols--cancel"></span>
+                    }
 
-            <button class="bg-red-500 text-white p-2 rounded-md right-0 ml-auto flex items-center justify-center"
-                (click)="deleteTodo(todo)">
-                <span class="iconify material-symbols--delete-outline size-6"></span>
-            </button>
+                </button>
+
+                <button class="bg-delete text-white rounded-md right-0 ml-auto flex items-center justify-center size-8"
+                    (click)="deleteTodo(todo)">
+                    <span class="iconify material-symbols--delete-outline"></span>
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
+        }
 
-    }
+    </div>
 
 </div>

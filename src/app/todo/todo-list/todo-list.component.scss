@@ -1,0 +1,16 @@
+:host {}
+
+button {
+
+    @apply size-8;
+
+    .iconify {
+        @apply size-4;
+    }
+
+    &:hover {
+        .iconify {
+            @apply size-6;
+        }
+    }
+}

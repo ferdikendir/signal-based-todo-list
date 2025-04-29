@@ -6,7 +6,7 @@ import { completeTodo, deleteTodo, todos, todoStore } from "@core/store";
 @Component({
     selector: 'app-todo-list',
     templateUrl: './todo-list.component.html',
-    styles: ``,
+    styleUrls: ['./todo-list.component.scss'],
     imports: [TodoInfoComponent, NgClass]
 })
 export class TodoListComponent {

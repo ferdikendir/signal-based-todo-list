@@ -5,7 +5,11 @@ import { addTodo } from "@core/store";
 @Component({
     selector: 'app-todo-form',
     templateUrl: './todo-form.component.html',
-    styles: ``,
+    styles: `
+    :host {
+        @apply h-[256px];
+    }
+    `,
     imports: [FormsModule]
 })
 export class TodoFormComponent {

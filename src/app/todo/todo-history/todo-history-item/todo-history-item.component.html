@@ -1,9 +1,25 @@
-<div class="flex flex-row bg-gray-500 p-2 text-white" (click)="collapsed.set(!collapsed())" [ngClass]="{
-    'rounded-xl shadow-2xl': !collapsed(),
-    'rounded-tl-xl rounded-tr-xl': collapsed()
+<div class="flex flex-row bg-secondary-header p-2 border border-secondary-text" (click)="collapsed.set(!collapsed())"
+    [ngClass]="{
+    'rounded-xl shadow-md': !collapsed(),
+    'rounded-tl-xl rounded-tr-xl border-b-transparent': collapsed()
 }">
 
-    <span>{{ history().type }}</span>
+    <span class="text-secondary-text text-lg">
+        @switch (history().type) {
+        @case (stateChangeType.CREATE) {
+        <span>Created a todo</span>
+        }
+        @case (stateChangeType.UPDATE) {
+        <span>Updated a todo</span>
+        }
+        @case (stateChangeType.DELETE) {
+        <span>Deleted a todo</span>
+        }
+        @case (stateChangeType.INITIAL) {
+        <span>Initial todo list</span>
+        }
+        }
+    </span>
 
     @if (collapsed()) {
     <span class="iconify mdi-light--chevron-down size-6 right-0 ml-auto"></span>
@@ -14,8 +30,9 @@
 </div>
 
 @if (collapsed()) {
-<div class="flex flex-row gap-x-2 justify-between items-center bg-card p-2 text-white opacity-50" [ngClass]="{
-    'rounded-bl-xl rounded-br-xl shadow-3xl': collapsed()
+<div class="flex flex-row gap-x-2 justify-between items-center bg-secondary-card p-2 text-secondary-text border border-secondary-text"
+    [ngClass]="{
+    'rounded-bl-xl rounded-br-xl shadow-md': collapsed()
 }">
 
     @switch (history().type) {
@@ -24,7 +41,7 @@
 
     <div class="flex flex-col">
         <p>{{ history().createdItem?.title }}</p>
-        <p>{{ history().description }}</p>
+        <p class="text-xs">{{ history().description }}</p>
     </div>
 
     }
@@ -32,8 +49,8 @@
     @case (stateChangeType.UPDATE) {
 
     <div class="flex flex-col">
-        <p>{{ history().updatedItem?.title }}</p>
-        <p>{{ history().description }}</p>
+        <p class="font-bold">{{ history().updatedItem?.title }}</p>
+        <p class="text-xs">{{ history().description }}</p>
     </div>
 
     @if (history().updatedItem?.completed) {
@@ -52,7 +69,7 @@
 
     <div class="flex flex-col">
         <p>{{ history().deletedItem?.title }}</p>
-        <p>{{ history().description }}</p>
+        <p class="text-xs">{{ history().description }}</p>
     </div>
 
     @if (history().deletedItem?.completed) {
@@ -68,7 +85,7 @@
     }
 
     @case (stateChangeType.INITIAL) {
-    <p>{{ history().description }}</p>
+    <p class="text-xs">{{ history().description }}</p>
     }
     }
 

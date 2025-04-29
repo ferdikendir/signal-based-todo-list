@@ -4,9 +4,9 @@
 @tailwind utilities;
 
 textarea {
-    @apply border-2 border-gray-300 rounded-md p-2 w-full h-full bg-white;
+    @apply border rounded-md p-2 w-full h-full bg-secondary;
 }
 
 textarea:focus {
-    @apply border-2 border-gray-300 rounded-md p-2 w-full h-full bg-white outline-none;
+    @apply border rounded-md p-2 w-full h-full bg-secondary outline-none;
 }

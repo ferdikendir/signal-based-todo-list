@@ -1,7 +1,9 @@
-<div class="flex flex-col gap-y-2 w-full h-full mt-8 bg-[#AE6D47] p-4 rounded-2xl">
+<div class="flex flex-col gap-y-2 w-full h-full bg-card p-4 rounded-2xl">
     <div class="w-full">
-        <textarea type="text" [(ngModel)]="todoTitle" rows="5" required placeholder="Add a todo"></textarea>
+        <textarea type="text" class="bg-secondary" [(ngModel)]="todoTitle" rows="6" required
+            placeholder="Add a todo"></textarea>
     </div>
 
-    <button class="bg-blue-500 text-white p-2 rounded-md w-40 right-0 ml-auto" (click)="addTodo()">Add Todo</button>
+    <button class="bg-primary text-white font-bold p-2 rounded-md w-40 right-0 ml-auto" (click)="addTodo()">Add
+        Todo</button>
 </div>
