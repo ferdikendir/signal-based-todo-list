@@ -2,15 +2,15 @@
 
     <app-todo-info class="p-2 rounded-xl bg-secondary" />
 
-    <div class="h-[calc(100vh-500px)] overflow-y-auto">
+    <div class="max-h-[calc(100vh-500px)] overflow-y-auto">
 
         @for (todo of todos(); track todo; let last = $last) {
 
-        <div class="flex flex-row items-center gap-y-2 bg-header rounded-2xl p-2" [ngClass]="{
+        <div class="flex flex-row items-center gap-y-2 bg-header rounded-2xl p-2 border border-[#CB80AB]" [ngClass]="{
             'mb-1': !last
         }">
 
-            <p class="text-xl truncate">{{todo.title}}</p>
+            <p class="text-xl truncate text-[#CB80AB]">{{todo.title}}</p>
 
             <div class="flex right-0 ml-auto gap-x-1">
 
