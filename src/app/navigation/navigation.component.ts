@@ -1,8 +1,7 @@
-import { Component, inject } from "@angular/core";
-import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { Component, inject, signal } from "@angular/core";
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { undoLastChange } from "@core/store";
 import { SharedModule } from "@shared/shared.module";
-
 @Component({
     selector: 'app-navigation',
     templateUrl: './navigation.component.html',
@@ -10,6 +9,8 @@ import { SharedModule } from "@shared/shared.module";
     imports: [RouterLink, RouterLinkActive, SharedModule]
 })
 export class NavigationComponent {
+
+    showUndoButton = signal(false);
 
     navigations = [
         {
@@ -25,6 +26,14 @@ export class NavigationComponent {
 
 
     router = inject(Router);
+
+    constructor() {
+
+        this.router.events.subscribe(event => {
+            this.showUndoButton.set(event instanceof NavigationEnd && event.urlAfterRedirects === '/todo')
+        });
+
+    }
 
     get navigationItems() {
         return this.navigations.map(item => {
