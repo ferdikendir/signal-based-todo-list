@@ -6,9 +6,6 @@ export interface IStore<T> {
     select(): Signal<T>;
 
     // Projected select
-    select<R>(project: (state: T) => R): Signal<Partial<T>>;
-
-    // Projected select
     select<R>(project?: (state: T) => R): Signal<T | R>;
 
     // Update state

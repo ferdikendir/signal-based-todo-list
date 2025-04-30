@@ -18,7 +18,6 @@ import { TodoHistoryItemComponent } from "./todo-history-item/todo-history-item.
 })
 export class TodoHistoryComponent {
 
-    // todoHistory = computed(() => history());
     todoHistory = history;
 
     stateChangeType = StateChangeType;
